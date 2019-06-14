@@ -4,42 +4,42 @@ const categories = [
         name: 'Plants',
         tags: ['products', 'inspirations'],
         count: 147,
-        images: require('../assets/images/plants.png')
+        images: require('../assets/icons/plants.png')
     },
     {
         id: 'seeds',
         name: 'Seeds',
         tags: ['products', 'shop'],
         count: 16,
-        images: require('../assets/images/seeds.png')
+        images: require('../assets/icons/seeds.png')
     },
     {
         id: 'flowers',
         name: 'Flowers',
         tags: ['products', 'inspirations'],
         count: 68,
-        images: require('../assets/images/flowers.png')
+        images: require('../assets/icons/flowers.png')
     },
     {
         id: 'sprayers',
         name: 'Sprayers',
         tags: ['products', 'shop'],
         count: 17,
-        images: require('../assets/images/sprayers.png')
+        images: require('../assets/icons/sprayers.png')
     },
     {
         id: 'pots',
         name: 'Pots',
         tags: ['products', 'shop'],
         count: 47,
-        images: require('../assets/images/pots.png')
+        images: require('../assets/icons/pots.png')
     },
     {
         id: 'fertilizers',
         name: 'Fertilizers',
         tags: ['products', 'shop'],
         count: 16,
-        images: require('../assets/images/fertilizers.png')
+        images: require('../assets/icons/fertilizers.png')
     },
 
 ];
