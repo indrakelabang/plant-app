@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Animated, Dimensions, Image, FlatList, StyleSheet } from 'react-native';
+import { Animated, Dimensions, Image, FlatList, Modal, StyleSheet, ScrollView } from 'react-native';
 
 import { Button, Block, Text } from '../components';
 import { theme } from '../constants';
@@ -14,7 +14,33 @@ class Welcome extends Component {
     scrollX = new Animated.Value(0);
 
     state = {
+        showTerms: false,
+    }
 
+    renderTermsService() {
+        return (
+            <Modal animationType="slide" visible={this.state.showTerms}>
+                <Block padding={[theme.sizes.padding * 2, theme.sizes.padding]} space="evenly">
+                    <Text h2 light>Terms of Service</Text>
+
+                    <ScrollView style={{ paddingVertical: theme.sizes.padding }}>
+                        <Text caption gray height={18}>
+                            asfdjklklklklklklkl fsdakjlklk lklklklklklk fsajdkldkdkldkld kldkldkldkldk dfsajkljkljkl
+                            </Text>
+                        <Text caption gray height={18}>
+                            asfdjklklklklklklkl fsdakjlklk lklklklklklk fsajdkldkdkldkld kldkldkldkldk dfsajkljkljkl
+                            </Text>
+                        <Text caption gray height={18}>
+                            asfdjklklklklklklkl fsdakjlkl klklklklklklk fsajdkldkdkldkldkl dkldkldkldk dfsajkljkljkl
+                            </Text>
+                    </ScrollView>
+
+                    <Button gradient onPress={() => this.setState({ showTerms: false })}>
+                        <Text center white>I understand</Text>
+                    </Button>
+                </Block>
+            </Modal >
+        )
     }
 
     renderIllustrations() {
@@ -75,12 +101,13 @@ class Welcome extends Component {
     }
 
     render() {
+        const { navigation } = this.props;
         return (
             <Block>
-                <Block center middle flex={0.5}>
+                <Block center bottom flex={0.4}>
                     <Text h1 center bold>
                         Your home.
-                    <Text h1 primary>Greener.</Text>
+                    <Text h1 primary> Greener.</Text>
                     </Text>
                     <Text h3 gray2 style={{ marginTop: theme.sizes.padding / 2 }}
                     >Enjoy the experience.
@@ -91,17 +118,19 @@ class Welcome extends Component {
                     {this.renderSteps()}
                 </Block>
                 <Block middle flex={0.5} margin={[0, theme.sizes.padding * 2]}>
-                    <Button gradient onPress={() => { }}>
+                    <Button gradient onPress={() => navigation.navigate('Login')}>
                         <Text center semibold white>Login</Text>
                     </Button >
-                    <Button onPress={() => { }}>
+                    <Button shadow onPress={() => navigation.navigate('Signup')}>
                         <Text center semibold>Signup</Text>
                     </Button >
-                    <Button onPress={() => { }}>
+                    <Button onPress={() => this.setState({ showTerms: true })}>
                         <Text center caption gray>Terms of service</Text>
                     </Button>
                 </Block>
+                {this.renderTermsService()}
             </Block>
+
         )
     }
 }
